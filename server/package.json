@@ -4,7 +4,7 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "dev": "node start.js 80",
+    "build": "node start.js 80",
     "test": "node start.js 8080"
   },
   "keywords": [],
