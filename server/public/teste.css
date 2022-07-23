@@ -5,20 +5,17 @@
 }
 
 body{
-  height: 99vh;
-  width: 98vw;
+ 
+ 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #a66f6f;
+
+  
 }
 
-.text{
-  font-size: 60px;
-  color: #f1f1f1;
-  cursor: pointer;
 
-}
+
 :root {
   --form_inclinacao: 25deg;
   --form_inclinacao_: 20deg;
@@ -30,30 +27,41 @@ body{
 
 .heart {
   margin: 0px;
-  background-color: rgba(255, 10, 10, 0.199);
+  
+  background-color: rgb(245, 78, 78);
   width: var(--heart_size);
   height: var(--heart_size);
   transform: rotate(-45deg);
   position: relative;
+
+  -moz-box-shadow: -3px -0px 40px rgb(146, 37, 37);
+  -webkit-box-shadow:-3px -0px 40px rgb(146, 37, 37);
+  box-shadow: -3px -0px 40px rgb(146, 37, 37);
+
+  border-radius: 5%;
 }
-.heart:before,
-.heart:after {
+.heart:before, 
+.heart:after{
   content: "";
-  background-color: rgba(255, 10, 10, 0.377);
+  background: radial-gradient(#f34343, rgb(245, 78, 78) , rgb(245, 78, 78) ,rgb(245, 78, 78) );
   border-radius: 50%;
   width: var(--heart_size);
   height: var(--heart_size);
   position: absolute;
+
 }
-
+ 
+  
 .heart:before {  top: -50%;}
-.heart:after { left: 50%; }
+.heart:after { left: 50%;}
 
+ 
 
 .box{
-  width: 30%;
-  height: 10%;
-  background: #f19066;
+  width: 40%;
+  height: 40%;
+  padding: 150px;
+
   margin: auto;
   cursor: pointer;
   animation: heartBeat 1.5s infinite;
@@ -62,11 +70,34 @@ body{
 
 .form{
   color:black;
-  background-color: rgba(0, 0, 0, 0.301);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.101);
+  border-radius: 1%;
+
   width: 90vw;
   height: 70vh;
   z-index: 9999;
   position:absolute; 
+}
+/*
+footer{
+  background: rgb(48, 8, 8);
+  width: 100%;
+  display: flex;
+
+  bottom: 0px;
+  position: fixed;
+}
+*/
+
+header{
+  background: rgb(216, 100, 100);
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 99999;
 }
  
 @keyframes heartBeat{
@@ -87,4 +118,3 @@ body{
   }
 }
 
- 
