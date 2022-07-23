@@ -9,7 +9,10 @@ const path = require('path')
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/pages/index.html'))
 })
-app.use(express.static('public'))
+
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const port = process.env.PORT || 3000;
 
