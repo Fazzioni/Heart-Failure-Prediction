@@ -63,7 +63,7 @@ body{
   padding: 150px;
 
   margin: auto;
-  cursor: pointer;
+ 
   animation: heartBeat 1.5s infinite;
   transform: rotate(var(--heart_inclinacao));
 }
@@ -71,13 +71,18 @@ body{
 .form{
   color:black;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.101);
+  background-color: rgba(199, 88, 88, 0.327);
   border-radius: 1%;
 
   width: 90vw;
   height: 70vh;
   z-index: 9999;
   position:absolute; 
+
+  -moz-box-shadow: -3px -0px 40px rgb(146, 37, 37);
+  -webkit-box-shadow:-3px -0px 40px rgb(146, 37, 37);
+  box-shadow: -3px -0px 50px rgb(165, 103, 103);
+
 }
 /*
 footer{

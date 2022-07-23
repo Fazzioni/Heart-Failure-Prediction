@@ -9,7 +9,25 @@
   <link rel="stylesheet" href="fundo.css">
 </head>
 <body>
-   
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+  <script>
+    let load_model;
+    let test_tensor;
+    async function Start(){
+        model_heart = await tf.loadLayersModel('/model/model.json');
+        
+        test_tensor = tf.tensor2d([[1,0.3,0.4,0.3,0.1]]);
+        console.log(model_heart.predict(test_tensor).print());
+    }
+    
+
+    console.log(tf)
+    Start()
+
+     // console.log(model_heart.summary())
+
+</script>
    <header>
       <h1>TESTE</h1>
    </header>
