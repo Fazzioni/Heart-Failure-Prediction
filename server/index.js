@@ -2,13 +2,14 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Home Page Route'));
+ 
+const path = require('path')
 
-app.get('/about', (req, res) => res.send('About Page Route'));
-
-app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
-
-app.get('/contact', (req, res) => res.send('Contact Page Route'));
+// então, criamos uma rota para '/'
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/pages/index.html'))
+})
+app.use(express.static('public'))
 
 const port = process.env.PORT || 3000;
 
