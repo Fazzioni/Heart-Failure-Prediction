@@ -12,45 +12,91 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 
   <script>
-    let load_model;
+    let model_heart;
     let test_tensor;
+
     async function Start(){
+        // carregar o modelo salvo
         model_heart = await tf.loadLayersModel('/model/model.json');
-        
+
+        // habilitar o botao, apos carregar
         test_tensor = tf.tensor2d([[1,0.3,0.4,0.3,0.1]]);
+
         console.log(model_heart.predict(test_tensor).print());
     }
-    
-
-    console.log(tf)
     Start()
+  </script>
 
-     // console.log(model_heart.summary())
-
-</script>
-   <header>
-      <h1>TESTE</h1>
-   </header>
-   <div class="bloods" ></div>
-
-
+    <header>
     
-    <div class="box">
-      <div class="heart">
-       
-      </div>
-    </div>
+      <h1>Predição</h1>
+      <h1>Informações</h1>
+      <h1>Sobre</h1>
 
-    <div class="form">
-      <h1>123</h1>
-    </div>
+   </header>
+    <div class="box"> <div class="heart">   </div> </div>
 
-    <!-- 
+        <div class="bloods" ></div>
+         <!-- 
+          <div class="box">
+            <div class="heart">   </div>
+          </div>
+          -->
+
+          <div class="form">
+            <h1>Vamos testar esse coraçãozinho?</h1>
+            
+            <!-- Exercise angina -->
+            <input type="checkbox" name="exercise_angina">
+            <label for="exercise_angina">exercise_angina</label>
+            
+            
+            <!-- ChestPainType -->
+            <h2> Dor / aperto </h2>
+            <input type="checkbox" name="v1"> 
+            <label for="v1">Desconforto no peito com características e duração típica (acontece de 	maneira constante)</label>
+            <!-- SE NAO TIVER DESCONFORTO, ocupa esse campo e cai no valor 4-->
+            <input type="checkbox" name="v2"> 
+            <label for="v2">Tem como fator stress ou questões emocionais</label>
+            <input type="checkbox" name="v3"> 
+            <label for="v3">Aliviado em repouso ou com remédios</label>
+
+
+            <!-- maxHr -->
+            <h2>MaxHr</h2>
+            
+            <label for="age">Idade</label>
+            <input type="number" name="age">
+
+            <!-- st_slope -->
+            <h2>st_slope</h2>
+            <input type="checkbox" name="slope_1">
+            <label for="slope_1">ascendente</label>
+            <input type="checkbox" name="slope_2">
+            <label for="slope_2">plano</label>
+            <input type="checkbox" name="slope_3">
+            <label for="slope_3">descida</label>
+            
+
+            <!-- oldpeak -->
+            <h2>OldPeak</h2>
+            <input type="range" name="OldPeak" min="-2.6" max="6.2">
+            <label for="OldPeak">OldPeak</label>
+            
+
+            
+            <button onclick="alert('calma')"> Sim, eu tenho coragem!</button>
+
+          </div>
+
+
+
+  <br>
 
   <footer>
     <h1>Teste</h1>
   </footer>
--->
+ 
 
 </body>
 </html>

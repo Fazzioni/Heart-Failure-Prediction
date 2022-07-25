@@ -1,7 +1,14 @@
 body{
     /*background: linear-gradient(#000000, #7a0909, #000000);
     */
-    background: radial-gradient(#c95858, #f8f4f4);
+    /*
+        background: radial-gradient(#c95858, #f8f4f4);
+        // 
+    */
+
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bloods{
