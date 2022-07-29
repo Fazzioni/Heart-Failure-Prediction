@@ -25,6 +25,19 @@
         console.log(model_heart.predict(test_tensor).print());
     }
     Start()
+
+    
+    function ChangePainVisibility(b = true){
+      el = document.getElementById("div_pain");
+      for (i = 0; i < el.children.length; i ++)
+        if (el.children[i].tagName == 'INPUT'){
+          el.children[i].disabled = !b;
+          el.children[i].checked = false;
+        }
+    }
+
+    
+
   </script>
 
     <header>
@@ -34,69 +47,171 @@
       <h1>Sobre</h1>
 
    </header>
+    <!-- coração no canto esquerdo -->
     <div class="box"> <div class="heart">   </div> </div>
 
+         <!-- animação atrás  -->
         <div class="bloods" ></div>
-         <!-- 
-          <div class="box">
-            <div class="heart">   </div>
-          </div>
-          -->
 
+          <!-- Formulário de predição-->
           <div class="form">
-            <h1>Vamos testar esse coraçãozinho?</h1>
-            
-            <!-- Exercise angina -->
-            <input type="checkbox" name="exercise_angina">
-            <label for="exercise_angina">exercise_angina</label>
-            
-            
-            <!-- ChestPainType -->
-            <h2> Dor / aperto </h2>
-            <input type="checkbox" name="v1"> 
-            <label for="v1">Desconforto no peito com características e duração típica (acontece de 	maneira constante)</label>
-            <!-- SE NAO TIVER DESCONFORTO, ocupa esse campo e cai no valor 4-->
-            <input type="checkbox" name="v2"> 
-            <label for="v2">Tem como fator stress ou questões emocionais</label>
-            <input type="checkbox" name="v3"> 
-            <label for="v3">Aliviado em repouso ou com remédios</label>
+                <h1>Vamos testar esse coraçãozinho?</h1>
+                
+                <!-- Exercise angina 
+                <input type="checkbox" name="exercise_angina">
+                <label for="exercise_angina">exercise_angina</label>
+                -->
+                 
+
+                <!-- maxHr -->
+                <h2>Qual sua idade</h2>
+                <input type="number" name="age" min="18" id="age"> 
+
+                <!---->
+                <h2>Você sente desconforto no peito?</h2>
+                <input class="red" type="radio" name="exercise_angina" id="exercise_angina_s" value="s" onclick="ChangePainVisibility(true)">
+                <label for="exercise_angina_s">Sim</label>
+
+                <input class="green" type="radio" name="exercise_angina" id="exercise_angina_n" value="n" onclick="ChangePainVisibility(false)">
+                <label  for="exercise_angina_n" >Não, meu coração é bom!!</label>
+                
+
+                <!-- Sente dor / desconforto-->
+                <div id="div_pain">
+                  <!---->
+                  <h2>O desconforto tem características e durações típicas?</h2>
+                  
+                  <input class="red" type="radio" name="dor_duracao_tipica" id="dor_duracao_tipica_s" value="s">
+                  <label for="dor_duracao_tipica_s">Sim</label>
+                  <input class="green" type="radio" name="dor_duracao_tipica" id="dor_duracao_tipica_n" value="n">
+                  <label  for="dor_duracao_tipica_n" >Não</label>
+                  
+                  <!-- -->
+                  <h2>Tem como fator stress ou questões emocionais?</h2>
+                  <input class="red" type="radio" name="dor_stress" id="dor_stress_s" value="s">
+                  <label for="dor_stress_s">Sim</label>
+                  <input class="green" type="radio" name="dor_stress" id="dor_stress_n" value="n">
+                  <label  for="dor_stress_n" >Não</label>
+                  
+                  <!-- -->
+                  <h2>Alivia em repouso ou com remédios?</h2>
+                  <input class="green" type="radio" name="dor_alivio" id="dor_alivio_s" value="s">
+                  <label for="dor_alivio_s">Sim</label>
+                  <input class="red" type="radio" name="dor_alivio" id="dor_alivio_n" value="n">
+                  <label  for="dor_alivio_n" >Não</label>
+                  
+                  <!-- -->
+                  <h2>Aparece ao fazer exercícios físicos?</h2>
+                  <input class="red" type="radio" name="dor_exercicio" id="dor_exercicio_s" value="s">
+                  <label for="dor_exercicio_s">Sim</label>
+                  <input class="green" type="radio" name="dor_exercicio" id="dor_exercicio_n" value="n">
+                  <label  for="dor_exercicio_n" >Não</label>
+                  
+                  
+                </div>
+
+                
 
 
-            <!-- maxHr -->
-            <h2>MaxHr</h2>
-            
-            <label for="age">Idade</label>
-            <input type="number" name="age">
+                <!-- st_slope -->
+                <h2>st_slope</h2>
+                <input class="laranja" type="radio" name="st_slope" id="st_slope_1" value="1">
+                <label for="st_slope_1"><img class="img_input" src="up.jpg"></label>
 
-            <!-- st_slope -->
-            <h2>st_slope</h2>
-            <input type="checkbox" name="slope_1">
-            <label for="slope_1">ascendente</label>
-            <input type="checkbox" name="slope_2">
-            <label for="slope_2">plano</label>
-            <input type="checkbox" name="slope_3">
-            <label for="slope_3">descida</label>
-            
+                <input class="laranja" type="radio" name="st_slope" id="st_slope_2" value="2">
+                <label  for="st_slope_2" ><img class="img_input" src="horizontal.jpg"></label>
 
-            <!-- oldpeak -->
-            <h2>OldPeak</h2>
-            <input type="range" name="OldPeak" min="-2.6" max="6.2">
-            <label for="OldPeak">OldPeak</label>
-            
+                <input class="laranja" type="radio" name="st_slope" id="st_slope_3" value="3">
+                <label  for="st_slope_3"><img class="img_input" src="down.jpg"></label>
+                
+                
 
-            
-            <button onclick="alert('calma')"> Sim, eu tenho coragem!</button>
+                <!-- oldpeak -->
+                <h2>OldPeak</h2>
+        
+                <label id="trackbar_value" class="label_tracker">.</label>
+                 
+
+                <div class="trackbarcontainer">
+                  <input type="range" min="-26" max="62" value="10" class="trackbar" id="Trackbar">
+                </div>
+ 
+                <br><br><br>
+                
+                <button onclick="alert('calma')"> Sim, eu tenho coragem!</button>
 
           </div>
 
 
+          
 
   <br>
-
+  <!--
   <footer>
     <h1>Teste</h1>
   </footer>
+  -->
+<script>
+  var slider = document.getElementById("Trackbar");
+     
+      slider.oninput = function() {
+      info = 'sem risco';
+
+      v = this.value;
+      c = 'hsl(112, 100%, 50%';
+      if (v < 15){ // sem risco
+          c = 'hsl(112, 100%, 50%';
+          this.style.background = "rgb(166, 233, 171)";
+          info = 'sem risco';
+
+      }else if (v < 20){ // baixo risco
+          c = 'hsl(39, 100%, 50%';
+          this.style.background = "rgb(205, 233, 131)";
+          info = 'Baixo risco';
+          
+      }else if (v < 25){ // medio risco
+          c = 'hsl(22, 100%, 50%';
+          this.style.background = "rgb(247, 148, 68)";
+          info = 'Médio risco';
+          
+
+      }else if (v < 42){ // alto risco
+          c = 'hsl(0, 100%, 50%';
+          this.style.background = "rgb(252, 119, 93)";
+          info = 'Alto risco';
+
+      }else{  
+          c = 'hsl(39, 100%, 50%';
+          this.style.background = "rgb(205, 233, 131)";
+          info = '';
+          
+      }
+      document.getElementById("trackbar_value").innerText = (this.value/10) +" - "+info;
  
+      
+      // if (this.value > 50) this.style.background = "red";
+        /*
+                  Baixo risco = Menores que 2
+	                Médio risco = Entre 2 e 2.55
+	                Alto risco = Acima de 2.55
+        */        
+
+        this.style.setProperty('--trackbarColor', c)    
+    }
+
+</script>
+
+<script>
+  // script para realizar a predição
+  function getValue(id){ return document.getElementById(id).value}
+  
+  function predition(){
+    age = getValue('age');
+    
+    alert(age);
+  }
+
+</script>
 
 </body>
 </html>
