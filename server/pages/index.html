@@ -138,7 +138,7 @@
  
                 <br><br><br>
                 
-                <button onclick="alert('calma')"> Sim, eu tenho coragem!</button>
+                <button onclick="predition()"> Sim, eu tenho coragem!</button>
 
           </div>
 
@@ -203,12 +203,61 @@
 
 <script>
   // script para realizar a predição
-  function getValue(id){ return document.getElementById(id).value}
+  function getId(id){ return document.getElementById(id)}
   
   function predition(){
-    age = getValue('age');
+    age = getId('age').value;
     
-    alert(age);
+    dor_peito = getId("exercise_angina_s").checked;
+    dor_duracao= getId("dor_duracao_tipica_s").checked;
+    dor_stree = getId("dor_stress_s").checked;
+    dor_alivia = getId("dor_alivio_s").checked;
+    dor_exercise = getId("dor_exercicio_s").checked;
+    
+    dor_slope = 0;
+    for (i = 1; i <=3; i++)
+      if (getId("st_slope_"+i).checked)
+        dor_slope = i;
+
+    old_peak = getId("Trackbar").value / 10;
+
+    
+
+    max_hr = 220 - age;
+    chesPain_type = 4;
+    if ( dor_peito){
+      chesPain_type = 3;
+      qtd = dor_duracao + dor_stree + !dor_alivia;
+      switch(qtd){
+        case 1: chesPain_type = 3;
+                break;
+        case 2: chesPain_type = 2;
+                break;
+        case 3: chesPain_type = 1;
+                break;
+      }
+    }
+
+    chesPain_type = chesPain_type / 10;
+    max_hr = (max_hr - 60) / (202 - 60);
+    old_peak = (old_peak+2.6) /(6.2+2.6);
+    dor_slope = dor_slope / 10;
+    if (dor_exercise)
+      dor_exercise = 1;
+    else
+      dor_exercise = 0;
+    test_tensor = tf.tensor2d([[ dor_exercise , chesPain_type, max_hr,old_peak,dor_slope  ]]);
+    resultado = model_heart.predict(test_tensor);
+    
+    console.log(
+      dor_exercise , chesPain_type, max_hr,old_peak,dor_slope
+    )
+    console.log(
+    model_heart.predict(test_tensor).print()
+    );
+    
+   alert( resultado.dataSync()[0] )
+ 
   }
 
 </script>
