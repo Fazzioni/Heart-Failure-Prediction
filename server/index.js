@@ -10,6 +10,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/pages/index.html'))
 })
 
+// então, criamos uma rota para '/'
+app.get('/enigma', (req, res) => {
+  res.sendFile(path.join(__dirname + '/pages/enigma.html'))
+})
+
+
+
 //app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
